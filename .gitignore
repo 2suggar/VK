@@ -1,1 +1,15 @@
+## User settings
+xcuserdata/
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+.build/
+
+# CocoaPods
 Pods/
+
+# Code Injection
+iOSInjectionProject/
