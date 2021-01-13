@@ -31,6 +31,36 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeToLeft))
+        leftSwipe.direction = .left
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeToRight))
+        rightSwipe.direction = .right
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+    }
+    
+    @objc
+    func swipeToLeft() {
+        if let visibleCell = collectionView.visibleCells.first,
+           let indexPath = collectionView.indexPath(for: visibleCell),
+           indexPath.row + 1 < collectionView.numberOfItems(inSection: indexPath.section)
+        {
+            let next = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            collectionView.scrollToItem(at: next, at: .centeredHorizontally, animated: true)
+        }
+    }
+    
+    @objc
+    func swipeToRight() {
+        if let visibleCell = collectionView.visibleCells.first,
+           let indexPath = collectionView.indexPath(for: visibleCell),
+           indexPath.row > 0
+        {
+            let next = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+            collectionView.scrollToItem(at: next, at: .centeredHorizontally, animated: true)
+        }
     }
 
     // MARK: UICollectionViewDataSource

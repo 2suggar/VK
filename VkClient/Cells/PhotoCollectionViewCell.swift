@@ -12,6 +12,7 @@ import AVFoundation
 class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var likeControl: LikeControl!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -14,8 +14,6 @@ class CommentsControl: UIControl {
     
     var countComments: Int = 0
     
-    var isLiked: Bool = false
-    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
     }
